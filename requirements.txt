@@ -1,3 +1,6 @@
 black
+evesso
 flake8
+pandas
+python-dotenv
 requests-futures

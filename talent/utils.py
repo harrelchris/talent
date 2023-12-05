@@ -16,7 +16,10 @@ def load_csv(path: pathlib.Path) -> dict:
         for row in reader:
             record = dict(zip(header, row))
             cast_ids(record)
-            record_id = record.pop("type_id")
+            try:
+                record_id = record.pop("id")
+            except KeyError:
+                record_id = record.pop("type_id")
             output[record_id] = record
     return output
 

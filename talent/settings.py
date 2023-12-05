@@ -14,6 +14,7 @@ ESI_JITA_ORDERS_CSV = DIR_ESI / "jita_orders.csv"
 ESI_VALE_ORDERS_CSV = DIR_ESI / "vale_orders.csv"
 
 ETL_ORDERS_CSV = DIR_ETL / "orders.csv"
+ETL_TYPES_CSV = DIR_ETL / "types.csv"
 
 SDE_LOCAL_MD5 = DIR_SDE / "local.md5"
 SDE_CATEGORIES_CSV = DIR_SDE / "categories.csv"

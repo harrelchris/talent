@@ -5,8 +5,6 @@ import evesso
 from requests_futures import sessions
 from talent import settings
 
-structure_id = 1035466617946
-
 session = sessions.FuturesSession()
 
 sso = evesso.SSO(
@@ -17,12 +15,12 @@ sso = evesso.SSO(
 )
 sso_header = sso.get_header()
 
-url = "https://esi.evetech.net/latest/markets/structures/{structure_id}/?datasource=tranquility&page={page}"
-request = session.head(url.format(structure_id=structure_id, page=1), headers=sso_header)
+url = "https://esi.evetech.net/latest/markets/structures/1035466617946/?datasource=tranquility&page={page}"
+request = session.head(url.format(page=1), headers=sso_header)
 response = request.result()
 page_count = int(response.headers.get("X-Pages", 0))
 
-urls = [url.format(structure_id=structure_id, page=page) for page in range(1, page_count + 1)]
+urls = [url.format(page=page) for page in range(1, page_count + 1)]
 futures = [session.get(url=url, headers=sso_header) for url in urls]
 
 records = []

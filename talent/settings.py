@@ -11,8 +11,10 @@ DIR_SDE = DIR_DATA / "sde"
 dotenv.load_dotenv(DIR_ROOT / ".env")
 
 ESI_JITA_ORDERS_CSV = DIR_ESI / "jita_orders.csv"
+ESI_VALE_HISTORY_CSV = DIR_ESI / "vale_history.csv"
 ESI_VALE_ORDERS_CSV = DIR_ESI / "vale_orders.csv"
 
+ETL_HISTORY_CSV = DIR_ETL / "history.csv"
 ETL_ORDERS_CSV = DIR_ETL / "orders.csv"
 ETL_TYPES_CSV = DIR_ETL / "types.csv"
 

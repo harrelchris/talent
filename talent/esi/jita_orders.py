@@ -50,16 +50,14 @@ def request_futures(type_ids: list) -> tuple:
 def main():
     type_ids = list(utils.get_type_ids())
 
-    orders = []
-    results, errors = request_futures(type_ids=type_ids)
-    orders.extend(results)
-    results, _ = request_futures(type_ids=errors)
-    orders.extend(results)
+    records, errors = request_futures(type_ids=type_ids)
+    reattempted_records, _ = request_futures(type_ids=errors)
+    records.extend(reattempted_records)
 
     with settings.ESI_JITA_ORDERS_CSV.open("w", newline="\n", encoding="utf8") as f:
         writer = csv.writer(f)
-        writer.writerow(orders[0].keys())
-        writer.writerows([r.values() for r in orders])
+        writer.writerow(records[0].keys())
+        writer.writerows([r.values() for r in records])
 
 
 if __name__ == "__main__":

@@ -2,7 +2,10 @@ import pathlib
 
 DIR_ROOT = pathlib.Path(__file__).resolve().parent.parent
 DIR_DATA = DIR_ROOT / "data"
+DIR_ESI = DIR_DATA / "esi"
 DIR_SDE = DIR_DATA / "sde"
+
+ESI_JITA_ORDERS_CSV = DIR_ESI / "jita_orders.csv"
 
 SDE_LOCAL_MD5 = DIR_SDE / "local.md5"
 SDE_CATEGORIES_CSV = DIR_SDE / "categories.csv"

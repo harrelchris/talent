@@ -27,7 +27,7 @@ SDE_META_TYPES_CSV = DIR_SDE / "meta_types.csv"
 SDE_RACES_CSV = DIR_SDE / "races.csv"
 SDE_TYPES_CSV = DIR_SDE / "types.csv"
 
-JWT_PATH = DIR_ROOT / 'jwt.json'
-CLIENT_ID = os.environ.get('CLIENT_ID')
-CALLBACK_URL = os.environ.get('CALLBACK_URL')
-SCOPE = os.environ.get('SCOPE')
+JWT_PATH = DIR_ROOT / "jwt.json"
+CLIENT_ID = os.environ.get("CLIENT_ID")
+CALLBACK_URL = os.environ.get("CALLBACK_URL")
+SCOPE = os.environ.get("SCOPE")

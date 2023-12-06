@@ -59,12 +59,12 @@ def etl_history():
     history.main()
 
 
-@click.command(name="history")
+@click.command(name="orders")
 def etl_orders():
     orders.main()
 
 
-@click.command(name="history")
+@click.command(name="types")
 def etl_types():
     types.main()
 

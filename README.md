@@ -6,6 +6,8 @@ Market analysis website generator
 
 ```shell
 pip install .
+talent sde download
+talent etl types
 ```
 
 ## Schedule

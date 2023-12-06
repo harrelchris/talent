@@ -6,6 +6,7 @@ setup(
     py_modules=["talent.cli"],
     install_requires=[
         "evesso",
+        "jinja2",
         "pandas",
         "python-dotenv",
         "requests-futures",

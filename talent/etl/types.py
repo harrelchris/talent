@@ -1,6 +1,6 @@
 import csv
-import settings
-import utils
+from talent import settings
+from talent import utils
 
 sde_categories = utils.load_csv(settings.SDE_CATEGORIES_CSV)
 sde_groups = utils.load_csv(settings.SDE_GROUPS_CSV)

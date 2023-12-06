@@ -1,6 +1,6 @@
 import csv
 import pathlib
-import settings
+from talent import settings
 
 
 def get_type_ids() -> set:

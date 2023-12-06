@@ -24,7 +24,7 @@ def request_futures(type_ids: list) -> tuple:
         response = future.result()
         try:
             response.raise_for_status()
-        except requests.exceptions.HTTPError as e:
+        except requests.exceptions.HTTPError:
             errors.append(future.type_id)
             continue
         try:

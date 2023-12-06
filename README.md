@@ -5,7 +5,7 @@ Market analysis website generator
 ## Install
 
 ```shell
-pip install .
+pip install --editable .
 talent sde download
 talent etl types
 ```

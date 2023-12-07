@@ -4,6 +4,7 @@ import dotenv
 
 DIR_ROOT = pathlib.Path(__file__).resolve().parent.parent
 DIR_DATA = DIR_ROOT / "data"
+DIR_DOCS = DIR_ROOT / "docs"
 DIR_ESI = DIR_DATA / "esi"
 DIR_ETL = DIR_DATA / "etl"
 DIR_SDE = DIR_DATA / "sde"

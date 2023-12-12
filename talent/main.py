@@ -1,5 +1,6 @@
 import click
 
+from talent.docs import build
 from talent.sde import download
 from talent.esi import jita_orders
 from talent.esi import vale_history
@@ -11,6 +12,11 @@ from talent.etl import types
 
 @click.group()
 def cli():
+    pass
+
+
+@click.group(name="docs")
+def group_docs():
     pass
 
 
@@ -29,9 +35,19 @@ def group_sde():
     pass
 
 
+cli.add_command(group_docs)
 cli.add_command(group_esi)
 cli.add_command(group_etl)
 cli.add_command(group_sde)
+
+
+@click.command(name="build")
+def docs_build():
+    click.echo("Building docs")
+    build.main()
+
+
+group_docs.add_command(docs_build)
 
 
 @click.command(name="jita_orders")

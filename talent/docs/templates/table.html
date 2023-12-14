@@ -1,25 +1,74 @@
 {% extends "base.html" %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+    <link href="https://cdn.datatables.net/v/bs5/jszip-3.10.1/dt-1.13.8/b-2.4.2/b-html5-2.4.2/cr-1.7.0/sb-1.6.0/datatables.min.css" rel="stylesheet">
+    <style>
+      td {
+          text-align: right;
+      }
+      {% for left_column in left_columns %}
+          td:nth-child({{ left_column }}) {
+              text-align: left;
+          }
+      {% endfor %}
+      .dtsb-searchBuilder {
+          padding: 5px;
+          margin: 10px;
+      }
+    </style>
 {% endblock %}
 
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-    <h1>{{ title }}</h1>
-    {{ table }}
+    <div class="py-5 rounded-3 container">
+      <h1 class="text-body-emphasis">{{ title }}</h1>
+      <p class="lead">{{ description }}</p>
+    </div>
+    <table id="datatable" class="display table table-hover">
+      <thead>
+        <tr>
+        {% for header in headers %}
+          <th>{{ header }}</th>
+        {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+      {% for record in records %}
+        <tr>
+        {% for column in record %}
+          <td>{{ column }}</td>
+        {% endfor %}
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
 {% endblock %}
 
 {% block extra_js %}
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/v/bs5/jszip-3.10.1/dt-1.13.8/b-2.4.2/b-html5-2.4.2/cr-1.7.0/sb-1.6.0/datatables.min.js"></script>
     <script>
-        let table = new DataTable('#datatable', {
+        let table = new DataTable("#datatable", {
+            dom: '<"card bg-body-tertiary container"Q><"pt-5"f>rtip',
+        {% if paging %}
+            pageLength: 100,
+            pagingType: "full_numbers",
+        {% else %}
             paging: false,
+        {% endif %}
             search: {
               return: true
             },
+            language: {
+                searchBuilder: {
+                    title: "Search Filters",
+                    data: "Column",
+                }
+            },
+            classes: {
+                data: "some-class"
+            }
         });
     </script>
 {% endblock %}

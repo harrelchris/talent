@@ -1,6 +1,7 @@
-import pathlib
+import datetime
 import jinja2
 import pandas as pd
+import pathlib
 from talent import settings
 
 DIR_TEMPLATES = pathlib.Path(__file__).parent / "templates"
@@ -173,6 +174,7 @@ def write_table_view(df: pd.DataFrame, title: str, description: str, left_column
                 index=False,
             ),
             paging=paging,
+            updated_at=datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'),
         )
         f.write(html)
 

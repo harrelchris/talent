@@ -71,5 +71,8 @@
                 data: "some-class"
             }
         });
+        $("#datatable td").bind('click', function () {
+            navigator.clipboard.writeText(this.innerText);
+        });
     </script>
 {% endblock %}

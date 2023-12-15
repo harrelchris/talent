@@ -51,6 +51,7 @@
     <script>
         let table = new DataTable("#datatable", {
             dom: '<"card bg-body-tertiary container"Q><"pt-5"f>rtip',
+            order: [],
         {% if paging %}
             pageLength: 100,
             pagingType: "full_numbers",
